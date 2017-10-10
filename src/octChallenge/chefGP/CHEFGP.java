@@ -15,8 +15,144 @@ class CHEFGP {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CHEFGP obj=new CHEFGP();
-		obj.sol1();
+		obj.sol2();
 		
+	}
+	public void sol2() {
+		InputStream input=System.in;
+		InputReader in=new InputReader(input);
+		OutputStream output=System.out;
+		PrintWriter out=new PrintWriter(output);
+		
+		int nCases=in.nextInt();
+		char[] line1;
+		String[] line2;
+		int x;
+		int y;
+		int n;
+		char[] opt;
+		int i=0,ia,ib,j=0;
+		
+		for(int c=0;c<nCases;c++) {
+			line1=in.nextLine().toCharArray();
+			line2=in.nextLine().split(" ");
+			x=Integer.parseInt(line2[0]);
+			y=Integer.parseInt(line2[1]);
+						
+			n=line1.length;
+			ia=0;ib=0;
+			for(j=0;j<n;j++) {
+				if(line1[j]=='a') 
+					ia++;			
+				else
+					ib++;			
+			}
+			
+			int z=0;
+
+			opt=new char[n*2];
+			
+			if(ia>=ib) {
+				opt[z++]='a';				
+//				out.print("a");
+				ia--;
+				
+			}
+			else {
+				opt[z++]='b';
+//				out.print("b");								
+				ib--;
+				
+			}
+				
+			
+			while(ia!=0||ib!=0) {
+				if(ia>=ib) {										
+					if(z>=x) {
+						for(i=1;i<=x;i++) {							
+							if(opt[z-i]!='a') {
+								break;
+							}																						
+								
+						}
+						if(i==x+1) {
+							if(ib!=0) {
+//								out.print("b");
+								ib--;							
+								opt[z++]='b';
+							}
+							else {
+//								out.print("*");
+								opt[z++]='*';
+								
+							}
+								
+						}
+						else {
+//							out.print("a");
+							ia--;
+							opt[z++]='a';
+												
+						}
+						
+					}
+					else {
+//						out.print("a");
+						ia--;
+						opt[z++]='a';
+											
+					}
+					
+//					out.print(i);
+						
+				}
+				else {
+					if(z>=y) {	
+						for(i=1;i<=y;i++) {
+							if(opt[z-i]!='b')
+									break;						
+							
+						}
+						if(i==y+1) {
+							if(ia!=0) {
+//								out.print("a");
+								ia--;
+								opt[z++]='a';
+								
+							}
+							else {
+//								out.print("*");
+								opt[z++]='*';
+								
+							}
+								
+						}
+						else {
+//							out.print("b");
+							ib--;
+							opt[z++]='b';
+												
+						}
+						
+					}
+					else {
+//						out.print("b");
+						ib--;
+						opt[z++]='b';
+											
+					}
+
+					
+				}
+				
+			}
+			for(i=0;i<z;i++) {
+				out.print(opt[i]);
+			}
+			out.println();			
+		}
+		out.close();		
+
 	}
 	public void sol1() {
 		InputStream input=System.in;
