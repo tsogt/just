@@ -22,6 +22,7 @@ class CycledCycles {
 		
 		int nCases=in.nextInt();
 		for(int c=0;c<nCases;c++) {
+			long startTime = System.currentTimeMillis();
 			String line1=in.nextLine();
 			int n=Integer.parseInt(line1.split(" ")[0]);
 			int q=Integer.parseInt(line1.split(" ")[1]);
@@ -78,6 +79,10 @@ class CycledCycles {
 			int a,b;
 			int A[];
 			CycledCycles obj=new CycledCycles();
+			long endTime = System.currentTimeMillis();
+//			out.println(endTime-startTime);
+			
+			long startTime1 = System.currentTimeMillis();
 			for(int i=0;i<q;i++) {
 				query=in.nextLine().split(" ");
 				
@@ -92,6 +97,8 @@ class CycledCycles {
 				}
 				out.println("cnt:"+cnt);*/
 			}
+			long endTime1 = System.currentTimeMillis();
+//			out.println(endTime1-startTime1);
 			
 		}
 		

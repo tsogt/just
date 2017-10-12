@@ -11,9 +11,7 @@ import java.util.List;
 public class Dijkstra {
 	FileReader fr;
 	BufferedReader br;
-	int X[];
-	int V[];
-	int A[];
+
 //	int[][] adjMat;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -38,9 +36,9 @@ public class Dijkstra {
 	}
 	public int[] dijkstra(int adjMat[][]) {
 		int n = Array.getLength(adjMat)-1;
-		X = new int[n+1];
-		V = new int[n+1];
-		A = new int[n+1];
+		int[] X = new int[n+1];
+		int[] V = new int[n+1];
+		int[] A = new int[n+1];
 		for(int i=0;i<=n;i++) {
 			V[i]=1;X[i]=0;A[i]=0;
 		}
